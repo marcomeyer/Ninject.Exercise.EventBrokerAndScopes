@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="EventBrokerAndScopes.MainForm" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAACAAAAAAAQCAAAACAAAAAAAAAAAACAAAAAA=</HashCode>
+      <FileName>MainForm.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="EventBrokerAndScopes.Content.IContentPresenter" Collapsed="true">
+    <Position X="9.25" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAgAAAgAAAAAAAAIAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Content\IContentPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EventBrokerAndScopes.Content.IContentView" Collapsed="true">
+    <Position X="9.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Content\IContentView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EventBrokerAndScopes.Editor.IEditorPresenter" Collapsed="true">
+    <Position X="6" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Editor\IEditorPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EventBrokerAndScopes.Editor.IEditorView" Collapsed="true">
+    <Position X="6" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAGAAAAAAAAAAA=</HashCode>
+      <FileName>Editor\IEditorView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EventBrokerAndScopes.IEditorFactory" Collapsed="true">
+    <Position X="3.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>IEditorFactory.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EventBrokerAndScopes.IPresenter" Collapsed="true">
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EventBrokerAndScopes.Tools.IAddToolPresenter" Collapsed="true">
+    <Position X="11.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tools\IAddToolPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EventBrokerAndScopes.Tools.IAddToolView" Collapsed="true">
+    <Position X="11.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>Tools\IAddToolView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EventBrokerAndScopes.Tools.IClearToolPresenter" Collapsed="true">
+    <Position X="14" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tools\IClearToolPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EventBrokerAndScopes.Tools.IClearToolView" Collapsed="true">
+    <Position X="14" Y="6.75" Width="1.5" />
+    <InheritanceLine Type="EventBrokerAndScopes.Tools.IToolView" ManuallyRouted="true" FixedToPoint="true">
+      <Path>
+        <Point X="13.5" Y="6.062" />
+        <Point X="13.5" Y="6.375" />
+        <Point X="14.688" Y="6.375" />
+        <Point X="14.688" Y="6.75" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tools\IClearToolView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EventBrokerAndScopes.Tools.IToolPresenter" Collapsed="true">
+    <Position X="12.75" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tools\IToolPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="EventBrokerAndScopes.Tools.IToolView" Collapsed="true">
+    <Position X="12.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Tools\IToolView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
