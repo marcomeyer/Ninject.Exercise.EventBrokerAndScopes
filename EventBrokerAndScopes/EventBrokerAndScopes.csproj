@@ -116,6 +116,15 @@
       <DependentUpon>EditorView.cs</DependentUpon>
     </Compile>
     <Compile Include="Content\IContentView.cs" />
+    <Compile Include="Tools\TextToolView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Tools\TextToolView.Designer.cs">
+      <DependentUpon>TextToolView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Tools\ITextToolView.cs" />
+    <Compile Include="Tools\ITextToolPresenter.cs" />
+    <Compile Include="Tools\TextToolPresenter.cs" />
     <Compile Include="Tools\IClearToolPresenter.cs" />
     <Compile Include="Tools\IDateToolPresenter.cs" />
     <Compile Include="IPresenter.cs" />
@@ -154,6 +163,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Tools\TextToolView.resx">
+      <DependentUpon>TextToolView.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="ClassDiagram.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
