@@ -1,6 +1,6 @@
 ﻿namespace EventBrokerAndScopes.Tools
 {
-    partial class AddToolView
+    partial class DateToolView
     {
         /// <summary> 
         /// Required designer variable.
@@ -33,21 +33,23 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(38, 64);
+            this.btnAdd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnAdd.Location = new System.Drawing.Point(20, 20);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(108, 108);
             this.btnAdd.TabIndex = 0;
-            this.btnAdd.Text = "Add";
+            this.btnAdd.Text = "Add Current Date";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.BtnAddClick);
             // 
-            // AddToolView
+            // DateToolView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.btnAdd);
-            this.Name = "AddToolView";
+            this.Name = "DateToolView";
+            this.Padding = new System.Windows.Forms.Padding(20);
             this.Size = new System.Drawing.Size(148, 148);
             this.ResumeLayout(false);
 

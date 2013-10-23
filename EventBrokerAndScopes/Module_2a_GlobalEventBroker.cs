@@ -10,31 +10,24 @@
     using Ninject.Extensions.Factory;
     using Ninject.Modules;
 
-    public class Module_3b : NinjectModule
+    public class Module_2a : NinjectModule
     {
-        private const string EditorEventBrokerName = "EditorEventBroker";
-
         public override void Load()
         {
-            this.Bind<IEditorFactory>().ToFactory();
-
             this.Kernel.Bind(x => x
                 .FromThisAssembly().SelectAllClasses().Where(t => t.Name.EndsWith("Presenter"))
                 .BindAllInterfaces()
                 .Configure(b => b
-                    .RegisterOnEventBroker(EditorEventBrokerName)
-                    .OnActivation<IPresenter>(o => o.Initialize()))
-                .ConfigureFor<EditorPresenter>(b => b
-                    .InTransientScope()
-                    .OwnsEventBroker(EditorEventBrokerName)));
+                    .RegisterOnGlobalEventBroker()
+                    .OnActivation<IPresenter>(o => o.Initialize())));
             
+            this.Bind<IEditorFactory>().ToFactory();
+
             this.Kernel.Bind(x => x
                 .FromThisAssembly().SelectAllClasses().Where(t => t.Name.EndsWith("View"))
-                .BindAllInterfaces());
-
-            this.Kernel.DefineDependency<IEditorPresenter, IContentPresenter>();
-            this.Kernel.DefineDependency<IEditorPresenter, IClearToolPresenter>();
-            this.Kernel.DefineDependency<IEditorPresenter, IAddToolPresenter>();
+                .BindAllInterfaces()
+                .Configure((b, c) => b.When(r => r.Target.Member.DeclaringType.Name == c.Name.Replace("View", "Presenter")))
+                );
         }
     }
 }

@@ -11,10 +11,10 @@ namespace EventBrokerAndScopes.Content
         [EventPublication("InitializeContent")]
         event EventHandler<EventArgs<IContentView>> InitializeContent;
                 
-        [EventSubscription("AddContent", typeof(Publisher))]
-        void HandleAddContent(object sender, EventArgs<DateTime> e);
-                
         [EventSubscription("ClearContent", typeof(Publisher))]
         void HandleClearContent(object sender, EventArgs e);
+
+        [EventSubscription("AddContent", typeof(Publisher))]
+        void HandleAddContent(object sender, EventArgs<string> e);
     }
 }

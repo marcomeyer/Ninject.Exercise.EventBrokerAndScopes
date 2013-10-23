@@ -5,9 +5,9 @@ namespace EventBrokerAndScopes.Tools
     using bbv.Common.EventBroker;
     using bbv.Common.Events;
 
-    public interface IAddToolPresenter : IToolPresenter
+    public interface IDateToolPresenter : IToolPresenter
     {
         [EventPublication("AddContent")]
-        event EventHandler<EventArgs<DateTime>> AddContent;
+        event EventHandler<EventArgs<string>> AddContent;
     }
 }

@@ -12,24 +12,27 @@
 
     public class Module_3a : NinjectModule
     {
+        private const string EditorEventBrokerName = "EditorEventBroker";
+
         public override void Load()
         {
-            this.Bind<IEditorFactory>().ToFactory();
-
             this.Kernel.Bind(x => x
                 .FromThisAssembly().SelectAllClasses().Where(t => t.Name.EndsWith("Presenter"))
                 .BindAllInterfaces()
                 .Configure(b => b
-                    .RegisterOnGlobalEventBroker()
-                    .OnActivation<IPresenter>(o => o.Initialize())));
-            
+                    .RegisterOnEventBroker(EditorEventBrokerName)
+                    .OnActivation<IPresenter>(o => o.Initialize()))
+                .ConfigureFor<EditorPresenter>(b => b
+                    .InTransientScope()
+                    .OwnsEventBroker(EditorEventBrokerName)));
+
+            this.Bind<IEditorFactory>().ToFactory();
+
             this.Kernel.Bind(x => x
                 .FromThisAssembly().SelectAllClasses().Where(t => t.Name.EndsWith("View"))
-                .BindAllInterfaces());
-
-            this.Kernel.DefineDependency<IEditorPresenter, IContentPresenter>();
-            this.Kernel.DefineDependency<IEditorPresenter, IClearToolPresenter>();
-            this.Kernel.DefineDependency<IEditorPresenter, IAddToolPresenter>();
+                .BindAllInterfaces()
+                .Configure((b, c) => b.When(r => r.Target.Member.DeclaringType.Name == c.Name.Replace("View", "Presenter")))
+                );
         }
     }
 }

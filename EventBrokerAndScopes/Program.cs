@@ -12,12 +12,14 @@ namespace EventBrokerAndScopes
         public static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false); 
-            
-            var kernel = InitializeKernel();
-            var applicationMainForm = kernel.Get<MainForm>();
-            
-            Application.Run(applicationMainForm);
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            using (var kernel = InitializeKernel())
+            {
+                var applicationMainForm = kernel.Get<MainForm>();
+
+                Application.Run(applicationMainForm);
+            }
         }
 
         private static IKernel InitializeKernel()

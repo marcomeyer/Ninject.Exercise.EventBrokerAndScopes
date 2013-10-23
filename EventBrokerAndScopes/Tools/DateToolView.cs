@@ -3,16 +3,16 @@
     using System;
     using System.Windows.Forms;
 
-    public partial class ClearToolView : UserControl, IToolView
+    public partial class DateToolView : UserControl, IToolView
     {
-        public ClearToolView()
+        public DateToolView()
         {
             this.InitializeComponent();
         }
 
         public event EventHandler ButtonClicked;
 
-        private void BtnClearClick(object sender, EventArgs e)
+        private void BtnAddClick(object sender, EventArgs e)
         {
             this.ButtonClicked(this, EventArgs.Empty);
         }

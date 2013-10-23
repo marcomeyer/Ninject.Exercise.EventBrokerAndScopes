@@ -14,22 +14,16 @@
             this.view = view;
         }
 
-        ~ContentPresenter()
-        {
-        }
-
         public event EventHandler<EventArgs<IContentView>> InitializeContent;
-
-        public void HandleAddContent(object sender, EventArgs<DateTime> e)
-        {
-            var content = e.Value.ToString("hh:mm:ss", CultureInfo.InvariantCulture);
-
-            this.view.AddContent(content);
-        }
 
         public void HandleClearContent(object sender, EventArgs e)
         {
             this.view.ClearContent();
+        }
+
+        public void HandleAddContent(object sender, EventArgs<string> e)
+        {
+            this.view.AddContent(e.Value);
         }
 
         public void Initialize()

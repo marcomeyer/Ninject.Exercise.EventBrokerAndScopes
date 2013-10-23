@@ -25,8 +25,12 @@
 
         public override void Load()
         {
-            this.Bind<IEditorFactory>().ToFactory();
+            this.Kernel.DefineDependency<IEditorPresenter, IContentPresenter>();
 
+            this.Kernel.Bind(x => x
+                .FromThisAssembly().SelectAllClasses().InheritedFrom<IToolPresenter>()
+                .BindWith(new DefaultInterfaceBindingGenerator(new BindableTypeSelector(), new DependencyCreationBindingCreator()))); 
+            
             this.Kernel.Bind(x => x
                 .FromThisAssembly().SelectAllClasses().Where(t => t.Name.EndsWith("Presenter"))
                 .BindAllInterfaces()
@@ -38,16 +42,14 @@
                     .InTransientScope()
                     .OwnsEventBroker(EditorEventBrokerName)
                     .DefinesNamedScope(EditorScopeName)));
-            
+
+            this.Bind<IEditorFactory>().ToFactory();
+
             this.Kernel.Bind(x => x
                 .FromThisAssembly().SelectAllClasses().Where(t => t.Name.EndsWith("View"))
-                .BindAllInterfaces());
-
-            this.Kernel.DefineDependency<IEditorPresenter, IContentPresenter>();
-
-            this.Kernel.Bind(x => x
-                .FromThisAssembly().SelectAllClasses().InheritedFrom<IToolPresenter>()
-                .BindWith(new DefaultInterfaceBindingGenerator(new BindableTypeSelector(), new DependencyCreationBindingCreator())));
+                .BindAllInterfaces()
+                .Configure((b, c) => b.When(r => r.Target.Member.DeclaringType.Name == c.Name.Replace("View", "Presenter")))
+                );
         }
 
         private class DependencyCreationBindingCreator : IBindingCreator
@@ -58,8 +60,6 @@
                     .GetMethod("DefineDependency")
                     .MakeGenericMethod(typeof(IEditorPresenter), serviceTypes.Single())
                     .Invoke(null, new object[] { bindingRoot });
-
-                //// this.bindingRoot.DefineDependency(typeof(IEditorPresenter), serviceTypes.Single());
 
                 return Enumerable.Empty<IBindingWhenInNamedWithOrOnSyntax<object>>();
             }

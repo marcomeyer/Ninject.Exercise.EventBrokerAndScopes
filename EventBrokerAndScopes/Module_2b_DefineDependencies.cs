@@ -1,17 +1,33 @@
 ﻿namespace EventBrokerAndScopes
 {
+    using EventBrokerAndScopes.Content;
+    using EventBrokerAndScopes.Editor;
+
+    using Ninject.Extensions.bbvEventBroker;
+    using Ninject.Extensions.DependencyCreation;
+
+    using bbv.Common.Events;
+
+    using EventBrokerAndScopes.Tools;
+
     using Ninject.Extensions.Conventions;
     using Ninject.Extensions.Factory;
     using Ninject.Modules;
 
-    public class Module_1 : NinjectModule
+    public class Module_2b : NinjectModule
     {
         public override void Load()
         {
+            this.Kernel.DefineDependency<IEditorPresenter, IContentPresenter>();
+            this.Kernel.DefineDependency<IEditorPresenter, IClearToolPresenter>();
+            this.Kernel.DefineDependency<IEditorPresenter, IDateToolPresenter>();
+
             this.Kernel.Bind(x => x
                 .FromThisAssembly().SelectAllClasses().Where(t => t.Name.EndsWith("Presenter"))
                 .BindAllInterfaces()
-                .Configure(b => b.OnActivation<IPresenter>(o => o.Initialize())));
+                .Configure(b => b
+                    .RegisterOnGlobalEventBroker()
+                    .OnActivation<IPresenter>(o => o.Initialize())));
 
             this.Bind<IEditorFactory>().ToFactory();
 

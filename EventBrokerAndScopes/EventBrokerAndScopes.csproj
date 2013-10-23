@@ -83,18 +83,18 @@
     <Compile Include="Editor\IEditorPresenter.cs" />
     <Compile Include="Editor\IEditorView.cs" />
     <Compile Include="Module_1_NormalBindingsAndFactory.cs" />
-    <Compile Include="Module_2b_TempInitOfViews.cs" />
-    <Compile Include="Module_2_DefineDependency.cs" />
-    <Compile Include="Module_3a_GlobalEventBroker.cs" />
-    <Compile Include="Module_3b_EventBroker.cs" />
-    <Compile Include="Module_4_Scope.cs" />
+    <Compile Include="Module_2b_DefineDependencies.cs" />
+    <Compile Include="Module_2a_GlobalEventBroker.cs" />
+    <Compile Include="Module_3a_EventBroker.cs" />
+    <Compile Include="Module_3b_DefineDependencies.cs" />
+    <Compile Include="Module_4_NamedScope.cs" />
     <Compile Include="Module_5_WithBindingCreator.cs" />
-    <Compile Include="Tools\AddToolPresenter.cs" />
-    <Compile Include="Tools\AddToolView.cs">
+    <Compile Include="Tools\DateToolPresenter.cs" />
+    <Compile Include="Tools\DateToolView.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Tools\AddToolView.Designer.cs">
-      <DependentUpon>AddToolView.cs</DependentUpon>
+    <Compile Include="Tools\DateToolView.Designer.cs">
+      <DependentUpon>DateToolView.cs</DependentUpon>
     </Compile>
     <Compile Include="Tools\ClearToolPresenter.cs" />
     <Compile Include="Tools\ClearToolView.cs">
@@ -117,9 +117,7 @@
     </Compile>
     <Compile Include="Content\IContentView.cs" />
     <Compile Include="Tools\IClearToolPresenter.cs" />
-    <Compile Include="Tools\IAddToolPresenter.cs" />
-    <Compile Include="Tools\IClearToolView.cs" />
-    <Compile Include="Tools\IAddToolView.cs" />
+    <Compile Include="Tools\IDateToolPresenter.cs" />
     <Compile Include="IPresenter.cs" />
     <Compile Include="Tools\IToolPresenter.cs" />
     <Compile Include="Tools\IToolView.cs" />
@@ -135,8 +133,8 @@
     <EmbeddedResource Include="Content\ContentView.resx">
       <DependentUpon>ContentView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Tools\AddToolView.resx">
-      <DependentUpon>AddToolView.cs</DependentUpon>
+    <EmbeddedResource Include="Tools\DateToolView.resx">
+      <DependentUpon>DateToolView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Tools\ClearToolView.resx">
       <DependentUpon>ClearToolView.cs</DependentUpon>

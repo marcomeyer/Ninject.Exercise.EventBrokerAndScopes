@@ -17,5 +17,10 @@
         {
             this.editorFactory.Create().Show();
         }
+
+        private void BtnGCCollect(object sender, EventArgs e)
+        {
+            GC.Collect();
+        }
     }
 }
