@@ -41,7 +41,8 @@
                     .InNamedScope(EditorScopeName)
                     .RegisterOnEventBroker(EditorEventBrokerName)
                     .OnActivation<IPresenter>(o => o.Initialize())
-                    .Intercept().With<MinimalLoggingInterceptor>())
+                    //.Intercept().With<MinimalLoggingInterceptor>()
+                    )
                 .ConfigureFor<EditorPresenter>(b => b
                     .InTransientScope()
                     .OwnsEventBroker(EditorEventBrokerName)
@@ -54,7 +55,8 @@
                 .BindAllInterfaces()
                 .Configure((b, c) => b
                     .When(r => r.Target.Member.DeclaringType.Name == c.Name.Replace("View", "Presenter"))
-                    .Intercept().With<MinimalLoggingInterceptor>())
+                    //.Intercept().With<MinimalLoggingInterceptor>()
+                    )
                 );
 
             // * OPTIONS ************************************************************************************************
